@@ -5,15 +5,22 @@
     "repository": "https://github.com/matheusmelchiades/share-eat-server.git",
     "author": "Matheus Melchiades <matheusmacielmelchiades@hotmail.com>",
     "license": "MIT",
+    "scripts": {
+        "test": "jest",
+        "lint": "eslint --fix ."
+    },
     "devDependencies": {
+        "@types/jest": "^24.0.22",
         "eslint": "^6.6.0",
         "eslint-config-prettier": "^6.5.0",
         "eslint-config-standard": "^14.1.0",
         "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jest": "^23.0.2",
         "eslint-plugin-node": "^10.0.0",
         "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
+        "jest": "^24.9.0",
         "prettier": "^1.18.2",
         "sequelize-cli": "^5.5.1"
     },
