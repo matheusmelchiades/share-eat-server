@@ -1,0 +1,16 @@
+
+
+# SERVER
+HOST=localhost
+PORT=5000
+
+# ENV
+NODE_ENV=development
+
+
+# DATABASE
+DB_HOSTNAME=localhost
+DB_USERNAME=root
+DB_PASSWORD=mnybtvrc4VG&H%DEXCRYVUI&6fCV&
+DB_NAME=shareEat
+DB_STORAGE=database
