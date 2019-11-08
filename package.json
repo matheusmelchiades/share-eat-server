@@ -6,8 +6,25 @@
     "author": "Matheus Melchiades <matheusmacielmelchiades@hotmail.com>",
     "license": "MIT",
     "scripts": {
+        "start": "node index.js",
+        "dev": "yarn run nodemon index.js",
         "test": "jest",
         "lint": "eslint --fix ."
+    },
+    "dependencies": {
+        "@hapi/hapi": "^18.4.0",
+        "boom": "^7.3.0",
+        "bunyan": "^1.8.12",
+        "dotenv": "^8.2.0",
+        "good": "^8.1.2",
+        "good-console": "^8.0.0",
+        "good-squeeze": "^5.1.0",
+        "sequelize": "^5.21.2",
+        "sqlite3": "^4.1.0"
+    },
+    "engines": {
+        "node": "12.x",
+        "yarn": "^1.17"
     },
     "devDependencies": {
         "@types/jest": "^24.0.22",
@@ -21,15 +38,8 @@
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
         "jest": "^24.9.0",
+        "nodemon": "^1.19.4",
         "prettier": "^1.18.2",
         "sequelize-cli": "^5.5.1"
-    },
-    "engines": {
-        "node": "12.x",
-        "yarn": "^1.17"
-    },
-    "dependencies": {
-        "sequelize": "^5.21.2",
-        "sqlite3": "^4.1.0"
     }
 }
