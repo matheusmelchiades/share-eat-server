@@ -1,14 +1,16 @@
 {
     "name": "share-eat-server",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "server.js",
     "repository": "https://github.com/matheusmelchiades/share-eat-server.git",
     "author": "Matheus Melchiades <matheusmacielmelchiades@hotmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "node index.js",
-        "dev": "yarn run nodemon index.js",
-        "test": "jest",
+        "start": "node server.js",
+        "dev": "yarn run nodemon server.js",
+        "pretest": "NODEls_ENV=test sequelize db:migrate",
+        "test": "NODE_ENV=test jest",
+        "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
         "lint": "eslint --fix ."
     },
     "dependencies": {
@@ -19,6 +21,7 @@
         "good": "^8.1.2",
         "good-console": "^8.0.0",
         "good-squeeze": "^5.1.0",
+        "joi": "^14.3.1",
         "sequelize": "^5.21.2",
         "sqlite3": "^4.1.0"
     },

@@ -4,8 +4,8 @@ const { factory } = require('factory-girl');
 /**
  * MODELS
  */
-const placeModel = require('../app/api/components/Place/model');
-const plateModel = require('../app/api/components/Place/model');
+const placeModel = require('../app/api/components/Places/model');
+const plateModel = require('../app/api/components/Plates/model');
 
 /**
  * Factory PLACES

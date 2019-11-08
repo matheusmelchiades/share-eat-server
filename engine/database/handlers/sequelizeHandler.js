@@ -7,6 +7,7 @@ class SequelizeHandler {
         this.models = {};
         this.dataTypes = Sequelize.DataTypes;
         this.operator = Sequelize.Op;
+        this.sequelize = Sequelize;
     }
 
     init() {

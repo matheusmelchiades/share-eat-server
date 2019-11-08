@@ -34,9 +34,20 @@ const register = async (server, options) => {
             routes = require(filePath);
 
             routes.forEach(r => {
-                const route = { ...defaultRoute, ...r };
+                r = { ...defaultRoute, ...r };
 
-                route.config = route.config || {};
+                const route = {
+                    ...defaultRoute,
+                    ...r,
+                    config: {
+                        ...defaultRoute.config,
+                        ...r.config,
+                        plugins: {
+                            ...defaultRoute.config.plugins,
+                            ...r.config.plugins
+                        }
+                    }
+                };
 
                 if (route.config.auth) {
                     route.config.validate = route.config.validate || {};

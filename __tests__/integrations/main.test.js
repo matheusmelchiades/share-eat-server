@@ -3,11 +3,11 @@ const launcher = require('../../engine/launcher');
 describe('FIRST', () => {
     let server;
 
-    beforeEach(async () => {
+    beforeAll(async () => {
         server = await launcher.init();
     });
 
-    afterEach(async () => {
+    afterAll(async () => {
         await server.stop();
     });
 
