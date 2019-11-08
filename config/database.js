@@ -12,7 +12,7 @@ module.exports = {
     dialect: process.env.DB_DIALECT || 'sqlite',
     storage:
         `${process.cwd()}/${process.env.DB_STORAGE || '__tests__'}` /** PATH TO STORAGE  **/ +
-        `${process.env.DB_NAME || 'database'}.sqlite` /** DATABASE NAME  **/,
+        `/${process.env.DB_NAME || 'database'}.sqlite` /** DATABASE NAME  **/,
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     define: {
         timestamps: false,

@@ -1,10 +1,8 @@
-'use strict';
-
-const TABLE_NAME = 'places';
+const fieldMap = require('../fieldMap');
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable(TABLE_NAME, {
+        return queryInterface.createTable(fieldMap.places.TABLE_NAME, {
             id: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
@@ -19,6 +17,6 @@ module.exports = {
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable(TABLE_NAME);
+        return queryInterface.dropTable(fieldMap.places.TABLE_NAME);
     }
 };
