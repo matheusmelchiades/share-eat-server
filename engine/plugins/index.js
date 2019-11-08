@@ -15,40 +15,41 @@ const logSqueezeArgs = [
 const getPlugins = () => {
     const plugins = [];
 
-    plugins.push({
-        plugin: good,
-        options: {
-            reporters: {
-                console: [
-                    {
-                        module: 'good-squeeze',
-                        name: 'Squeeze',
-                        args: logSqueezeArgs
-                    },
-                    {
-                        module: 'good-console',
-                        args: [
-                            {
-                                format: 'HH:mm:ss DD.MM.YYYY'
-                            }
-                        ]
-                    },
-                    'stdout'
-                ],
-                file: [
-                    {
-                        module: 'good-squeeze',
-                        name: 'Squeeze',
-                        args: logSqueezeArgs
-                    },
-                    {
-                        module: 'good-squeeze',
-                        name: 'SafeJson'
-                    }
-                ]
+    if (process.env.NODE_ENV !== 'test')
+        plugins.push({
+            plugin: good,
+            options: {
+                reporters: {
+                    console: [
+                        {
+                            module: 'good-squeeze',
+                            name: 'Squeeze',
+                            args: logSqueezeArgs
+                        },
+                        {
+                            module: 'good-console',
+                            args: [
+                                {
+                                    format: 'HH:mm:ss DD.MM.YYYY'
+                                }
+                            ]
+                        },
+                        'stdout'
+                    ],
+                    file: [
+                        {
+                            module: 'good-squeeze',
+                            name: 'Squeeze',
+                            args: logSqueezeArgs
+                        },
+                        {
+                            module: 'good-squeeze',
+                            name: 'SafeJson'
+                        }
+                    ]
+                }
             }
-        }
-    });
+        });
 
     // ROUTES
     plugins.push({
