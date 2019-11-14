@@ -8,6 +8,10 @@ const schema = {
         autoIncrement: true,
         allowNull: false
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     description: {
         type: DataTypes.STRING,
         defaultValue: ''

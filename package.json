@@ -8,7 +8,7 @@
     "scripts": {
         "start": "node server.js",
         "dev": "yarn run nodemon server.js",
-        "pretest": "NODEls_ENV=test sequelize db:migrate",
+        "pretest": "NODE_ENV=test sequelize db:migrate",
         "test": "NODE_ENV=test jest",
         "posttest": "NODE_ENV=test sequelize db:migrate:undo:all",
         "lint": "eslint --fix ."
