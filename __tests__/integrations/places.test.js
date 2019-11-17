@@ -1,4 +1,5 @@
 const launcher = require('../../engine/launcher');
+const helper = require('../helper');
 const queryString = require('querystring');
 
 describe('Places', () => {
@@ -7,6 +8,8 @@ describe('Places', () => {
 
     beforeAll(async () => {
         server = await launcher.init();
+
+        await helper.delay(800);
 
         factory = require('../factory');
     });
@@ -55,9 +58,8 @@ describe('Places', () => {
     });
 
     it('it should return data with projection valid of listing places', async () => {
-        const placesDb = await factory.create('place');
-
-        await factory.createMany('plate', 10, { placeId: placesDb.id });
+        const placesDb = await factory.createMany('place', 1);
+        const platesDb = await factory.createMany('plate', 5, { placeId: placesDb[0].id });
 
         const query = { page: 1, limit: 10, projection: 'listPlaces' };
 
@@ -69,8 +71,8 @@ describe('Places', () => {
         expect(response.statusCode).toBe(200);
         expect(response.result).toHaveProperty('count');
         expect(response.result).toHaveProperty('rows');
-        expect(response.result.count).toBe(1);
-        expect(response.result.rows.length).toBe(1);
-        expect(response.result.rows[0].plates).toBe(10);
+        expect(response.result.count).toBe(placesDb.length);
+        expect(response.result.rows.length).toBe(placesDb.length);
+        expect(response.result.rows[0].plates).toBe(platesDb.length);
     });
 });

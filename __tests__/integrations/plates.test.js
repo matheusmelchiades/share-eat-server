@@ -1,4 +1,5 @@
 const launcher = require('../../engine/launcher');
+const helper = require('../helper');
 
 describe('Plates', () => {
     let server;
@@ -6,8 +7,13 @@ describe('Plates', () => {
 
     beforeAll(async () => {
         server = await launcher.init();
-        factory = require('../factory');
 
+        await helper.delay(800);
+
+        factory = require('../factory');
+    });
+
+    beforeEach(async () => {
         await global.database.truncate();
     });
 

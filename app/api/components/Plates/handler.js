@@ -7,8 +7,9 @@ module.exports.getPlatesByPlace = async (req, h) => {
     try {
         const { placeId } = req.params;
         const { page, limit, projection } = req.query;
-
+        console.log(placeId);
         const placeDb = await modelPlace.findOne({ where: { id: placeId } });
+        console.log(placeDb);
 
         if (placeDb) {
             const placesDB = await model.findPaginate(placeId, page, limit, projection);
@@ -16,8 +17,9 @@ module.exports.getPlatesByPlace = async (req, h) => {
             return placesDB;
         }
 
-        return boom.badData({ message: 'This id of place not exists' });
+        return boom.badData('This id of place not exists');
     } catch (error) {
+        console.log(error);
         logger.error(error.message);
 
         if (!error.isBoom) throw boom.boomify(error);
