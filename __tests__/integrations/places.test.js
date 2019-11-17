@@ -11,6 +11,10 @@ describe('Places', () => {
         factory = require('../factory');
     });
 
+    beforeEach(async () => {
+        await global.database.truncate();
+    });
+
     afterAll(async () => {
         await server.stop();
     });
@@ -51,11 +55,11 @@ describe('Places', () => {
     });
 
     it('it should return data with projection valid of listing places', async () => {
-        const query = { page: 1, limit: 10, projection: 'listPlaces' };
-
         const placesDb = await factory.create('place');
 
         await factory.createMany('plate', 10, { placeId: placesDb.id });
+
+        const query = { page: 1, limit: 10, projection: 'listPlaces' };
 
         const response = await server.inject({
             method: 'GET',
@@ -65,7 +69,8 @@ describe('Places', () => {
         expect(response.statusCode).toBe(200);
         expect(response.result).toHaveProperty('count');
         expect(response.result).toHaveProperty('rows');
-        // expect(response.result.count).toBe(1);
-        // expect(response.result.rows.length).toBe(1);
+        expect(response.result.count).toBe(1);
+        expect(response.result.rows.length).toBe(1);
+        expect(response.result.rows[0].plates).toBe(10);
     });
 });
