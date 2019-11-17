@@ -23,11 +23,7 @@ module.exports = {
             },
             placeId: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
-                references: {
-                    model: fieldMap.places.TABLE_NAME,
-                    key: 'id'
-                }
+                type: Sequelize.INTEGER
             }
         });
     },

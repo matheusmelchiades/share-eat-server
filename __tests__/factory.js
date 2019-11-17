@@ -18,6 +18,7 @@ factory.define('place', placeModel, {
  * Factory PLATES
  */
 factory.define('plate', plateModel, {
+    name: faker.name.firstName(),
     description: faker.lorem.paragraph(),
     price: faker.commerce.price(),
     placeId: faker.random.number()
