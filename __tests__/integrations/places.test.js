@@ -9,7 +9,8 @@ describe('Places', () => {
     beforeAll(async () => {
         server = await launcher.init();
 
-        await helper.delay(800);
+        // DELAY TO LOAD ROUTES
+        await helper.delay(200);
 
         factory = require('../factory');
     });
