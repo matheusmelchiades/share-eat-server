@@ -10,11 +10,35 @@ module.exports.getPlatesByPlace = async (req, h) => {
 
         const placeDb = await modelPlace.findOne({ where: { id: placeId } });
 
-        if (!placeDb) return boom.badData({ message: 'This id of place not exists' });
+        if (placeDb) {
+            const placesDB = await model.findPaginate(placeId, page, limit, projection);
 
-        const placesDB = await model.findPaginate(placeId, page, limit, projection);
+            return placesDB;
+        }
 
-        return placesDB;
+        return boom.badData({ message: 'This id of place not exists' });
+    } catch (error) {
+        logger.error(error.message);
+
+        if (!error.isBoom) throw boom.boomify(error);
+
+        return boom.badImplementation();
+    }
+};
+
+module.exports.createPlate = async (req, h) => {
+    try {
+        const { placeId, ...plate } = req.payload;
+
+        const placeDb = await modelPlace.findOne({ where: { id: placeId } });
+
+        if (placeDb.id) {
+            const newPlate = await model.create({ ...plate, placeId });
+
+            return newPlate;
+        }
+
+        return boom.badData('Place not exists.');
     } catch (error) {
         logger.error(error.message);
 

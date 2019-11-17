@@ -20,5 +20,20 @@ module.exports = [
                 }
             }
         }
+    },
+    {
+        path: '/plate',
+        method: 'POST',
+        handler: handler.createPlate,
+        config: {
+            validate: {
+                payload: {
+                    name: joi.string().required(),
+                    price: joi.number().required(),
+                    description: joi.string().required(),
+                    placeId: joi.number().required()
+                }
+            }
+        }
     }
 ];
