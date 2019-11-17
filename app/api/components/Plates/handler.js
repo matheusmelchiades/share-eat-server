@@ -18,10 +18,7 @@ module.exports.getPlatesByPlace = async (req, h) => {
 
         return boom.badData('This id of place not exists');
     } catch (error) {
-        console.log(error);
         logger.error(error.message);
-
-        if (!error.isBoom) throw boom.boomify(error);
 
         return boom.badImplementation();
     }
@@ -41,10 +38,7 @@ module.exports.createPlate = async (req, h) => {
 
         return boom.badData('Place not exists.');
     } catch (error) {
-        console.log(error);
         logger.error(error.message);
-
-        if (!error.isBoom) throw boom.boomify(error);
 
         return boom.badImplementation();
     }
