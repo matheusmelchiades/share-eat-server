@@ -12,8 +12,6 @@ module.exports.getPlaces = async (req, h) => {
     } catch (error) {
         logger.error(error.message);
 
-        if (!error.isBoom) throw boom.boomify(error);
-
         return boom.badImplementation();
     }
 };

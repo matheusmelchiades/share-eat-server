@@ -4,6 +4,15 @@ jobs:
     build:
         docker:
             - image: circleci/node:12.11.0
+        environment:
+            HOST: 'localhost'
+            PORT: '5000'
+            DB_HOSTNAME: 'localhost'
+            DB_USERNAME: 'root'
+            DB_PASSWORD: 'mnybtvrc4VG&H%DEXCRYVUI&6fCV&'
+            DB_NAME: 'test'
+            DB_STORAGE: '__tests__'
+            DB_DIALECT: 'sqlite'
 
         working_directory: ~/repo
         steps:
