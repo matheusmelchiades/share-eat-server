@@ -11,18 +11,6 @@ Application server | Node.js | Hapi.js | Sequelize
 -   [Sequelize](https://sequelize.org/master/) 5.x
 
 
-# Happy Harvest Server
-
-Application server | Node.js | Express.js
-
-## Prerequisites
-
--   [NodeJS](https://nodejs.org/en/) 12.x
--   [Yarn](https://yarnpkg.com/lang/en/) 1.17.x
--   [Express](http://expressjs.com/) 4.17.x
--   [Jest](https://jestjs.io/) 24.9.x
--   [Docker](https://www.docker.com) 19.X
-
 ## Initialization
 To get started the application server execute the commands below in the project.
 
