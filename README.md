@@ -29,6 +29,11 @@ yarn run sequelize db:migrate
 yarn run sequelize db:seed:all
 ```
 
+**CONFIG ENV**
+
+To config the environment, you have to rename the file with name "env_sample" to ".env" and rename the variable as you need.
+
+
 **START SERVER**
 
 To execution with yarn don't forget of config the environment, NODE_ENV = development | homologation | production | test. (default: development)
