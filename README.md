@@ -18,7 +18,7 @@ To get started the application server execute the commands below in the project.
 
 To init application, you have to exec this pass to install all dependencies.
 ```bash
-yarn start
+yarn
 ```
 
 **SEQUELIZE**
