@@ -1,7 +1,3 @@
-require('dotenv').config({
-    path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env.dev'
-});
-
 global.database = {};
 
 module.exports = {

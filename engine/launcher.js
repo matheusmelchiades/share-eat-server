@@ -1,3 +1,7 @@
+require('dotenv').config({
+    path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+});
+
 const Hapi = require('@hapi/hapi');
 const config = require('../config/server');
 const database = require('./database');

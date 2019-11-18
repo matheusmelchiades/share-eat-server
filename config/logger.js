@@ -1,4 +1,3 @@
-require('dotenv').config();
 const bunyan = require('bunyan');
 
 const LOG_FOLDER = './logs';
